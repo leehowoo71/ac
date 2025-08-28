@@ -1,6 +1,4 @@
-
 import React, { useState } from 'react';
-import { generateExcuse } from '../services/geminiService';
 
 const ExcuseGenerator: React.FC = () => {
     const [situation, setSituation] = useState('');
@@ -17,6 +15,8 @@ const ExcuseGenerator: React.FC = () => {
         setError(null);
         setExcuse('');
         try {
+            // Dynamically import the service ONLY when the button is clicked
+            const { generateExcuse } = await import('../services/geminiService');
             const result = await generateExcuse(situation);
             setExcuse(result);
         } catch (err) {

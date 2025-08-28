@@ -1,8 +1,10 @@
-const CACHE_NAME = 'dui-prevention-cache-v1';
+const CACHE_NAME = 'dui-prevention-cache-v2';
 // Add URLs of assets to cache
 const urlsToCache = [
   '.',
   './index.html',
+  './manifest.json',
+  './index.tsx',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png'
 ];
