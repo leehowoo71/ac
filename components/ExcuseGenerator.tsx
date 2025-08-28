@@ -20,7 +20,11 @@ const ExcuseGenerator: React.FC = () => {
             const result = await generateExcuse(situation);
             setExcuse(result);
         } catch (err) {
-            setError('메시지를 생성하는 데 실패했습니다. 잠시 후 다시 시도해주세요.');
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError('메시지를 생성하는 데 실패했습니다. 잠시 후 다시 시도해주세요.');
+            }
             console.error(err);
         } finally {
             setLoading(false);

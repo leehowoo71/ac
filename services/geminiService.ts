@@ -1,10 +1,15 @@
 
 import { GoogleGenAI } from "@google/genai";
 
-// The API_KEY is expected to be available as an environment variable.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 export async function generateExcuse(situation: string): Promise<string> {
+    // Check for API Key at the moment the function is called
+    if (!process.env.API_KEY) {
+        throw new Error("AI 기능을 사용할 수 없습니다. API 키가 설정되지 않았습니다.");
+    }
+    
+    // Initialize the AI client only when needed
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+
     try {
         const prompt = `You are a helpful and wise friend. A user is in a social situation in Korea where they feel pressured to drink alcohol, but they want to decline politely and firmly. The situation is: "${situation}". 
         
@@ -26,6 +31,6 @@ export async function generateExcuse(situation: string): Promise<string> {
 
     } catch (error) {
         console.error("Error generating excuse with Gemini API:", error);
-        throw new Error("Failed to generate an excuse.");
+        throw new Error("AI 모델 호출 중 오류가 발생했습니다.");
     }
 }
