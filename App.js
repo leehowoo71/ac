@@ -5,7 +5,6 @@ import BACCalculator from './components/BACCalculator.js';
 import InfoCard from './components/InfoCard.js';
 import Pledge from './components/Pledge.js';
 import Footer from './components/Footer.js';
-import ExcuseGenerator from './components/ExcuseGenerator.js';
 
 const App = () => {
     return (
@@ -15,7 +14,7 @@ const App = () => {
                 React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-8 items-start" },
                     React.createElement("div", { className: "flex flex-col gap-8" },
                         React.createElement(BACCalculator, null),
-                        React.createElement(ExcuseGenerator, null)
+                        React.createElement(Pledge, null)
                     ),
                     React.createElement("div", { className: "flex flex-col gap-8" },
                         React.createElement(InfoCard, { title: "음주운전의 위험성", icon: "fa-triangle-exclamation" },
@@ -43,8 +42,7 @@ const App = () => {
                                 React.createElement("li", null, React.createElement("strong", null, "택시/공유 차량 서비스:"), " 택시나 카셰어링 서비스를 이용하여 편리하고 안전하게 이동할 수 있습니다."),
                                 React.createElement("li", null, React.createElement("strong", null, "지인에게 부탁하기:"), " 술을 마시지 않은 친구나 가족에게 운전을 부탁하는 것도 좋은 방법입니다.")
                             )
-                        ),
-                        React.createElement(Pledge, null)
+                        )
                     )
                 )
             ),

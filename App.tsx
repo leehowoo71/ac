@@ -5,7 +5,6 @@ import BACCalculator from './components/BACCalculator';
 import InfoCard from './components/InfoCard';
 import Pledge from './components/Pledge';
 import Footer from './components/Footer';
-import ExcuseGenerator from './components/ExcuseGenerator';
 
 const App: React.FC = () => {
     return (
@@ -15,7 +14,7 @@ const App: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                     <div className="flex flex-col gap-8">
                         <BACCalculator />
-                        <ExcuseGenerator />
+                        <Pledge />
                     </div>
                     <div className="flex flex-col gap-8">
                         <InfoCard title="음주운전의 위험성" icon="fa-triangle-exclamation">
@@ -50,8 +49,6 @@ const App: React.FC = () => {
                                 <li><strong>지인에게 부탁하기:</strong> 술을 마시지 않은 친구나 가족에게 운전을 부탁하는 것도 좋은 방법입니다.</li>
                             </ul>
                         </InfoCard>
-                        
-                        <Pledge />
                     </div>
                 </div>
             </main>

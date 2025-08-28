@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dui-prevention-cache-v5';
+const CACHE_NAME = 'dui-prevention-cache-v6';
 // Add URLs of ALL assets to cache for offline functionality
 const urlsToCache = [
   '.',
@@ -12,8 +12,6 @@ const urlsToCache = [
   './components/InfoCard.js',
   './components/BACCalculator.js',
   './components/Pledge.js',
-  './components/ExcuseGenerator.js',
-  './services/geminiService.js',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png'
 ];
