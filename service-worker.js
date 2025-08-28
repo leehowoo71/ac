@@ -2,8 +2,9 @@ const CACHE_NAME = 'dui-prevention-cache-v1';
 // Add URLs of assets to cache
 const urlsToCache = [
   '/',
-  '/index.html'
-  // NOTE: You would also add your app icons here, e.g., '/icons/icon-192x192.png'
+  '/index.html',
+  '/icons/icon-192x192.png',
+  '/icons/icon-512x512.png'
 ];
 
 // Install a service worker
