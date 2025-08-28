@@ -1,19 +1,19 @@
-const CACHE_NAME = 'dui-prevention-cache-v3';
+const CACHE_NAME = 'dui-prevention-cache-v5';
 // Add URLs of ALL assets to cache for offline functionality
 const urlsToCache = [
   '.',
   './index.html',
   './manifest.json',
-  './index.tsx',
-  './App.tsx',
-  './types.ts',
-  './components/Header.tsx',
-  './components/Footer.tsx',
-  './components/InfoCard.tsx',
-  './components/BACCalculator.tsx',
-  './components/Pledge.tsx',
-  './components/ExcuseGenerator.tsx',
-  './services/geminiService.ts',
+  './index.js',
+  './App.js',
+  './types.js',
+  './components/Header.js',
+  './components/Footer.js',
+  './components/InfoCard.js',
+  './components/BACCalculator.js',
+  './components/Pledge.js',
+  './components/ExcuseGenerator.js',
+  './services/geminiService.js',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png'
 ];
@@ -24,7 +24,12 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => {
         console.log('Opened cache');
+        // Use addAll to fetch and cache all the assets.
+        // It's atomic - if one file fails, the whole operation fails.
         return cache.addAll(urlsToCache);
+      })
+      .catch(error => {
+        console.error('Failed to cache resources during install:', error);
       })
   );
 });
@@ -42,6 +47,7 @@ self.addEventListener('fetch', event => {
         if (response) {
           return response;
         }
+        // Not in cache - fetch from network
         return fetch(event.request);
       }
     )
