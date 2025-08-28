@@ -3,19 +3,18 @@ import { GoogleGenAI } from "@google/genai";
 
 export async function generateExcuse(situation: string): Promise<string> {
     let apiKey: string | undefined;
-    try {
-        // This safely checks for the API key. It will throw a ReferenceError
-        // if 'process' is not defined, which we catch immediately.
+
+    // Safely check if 'process' and 'process.env' exist before trying to access them.
+    // This prevents the 'ReferenceError: process is not defined' crash in browser environments.
+    if (typeof process !== 'undefined' && process.env && process.env.API_KEY) {
         apiKey = process.env.API_KEY;
-    } catch (e) {
-        console.error("Could not access process.env.API_KEY. This is expected in a browser environment without a build step.", e);
-        throw new Error("AI 기능을 사용할 수 없습니다. API 키 환경 변수가 설정되지 않았습니다.");
     }
 
     if (!apiKey) {
+        console.error("API key is not available. This is expected if process.env.API_KEY is not set.");
         throw new Error("AI 기능을 사용할 수 없습니다. API 키가 설정되지 않았습니다.");
     }
-    
+
     // Initialize the AI client only when needed and if the key exists.
     const ai = new GoogleGenAI({ apiKey });
 
