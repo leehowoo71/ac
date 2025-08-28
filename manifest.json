@@ -4,12 +4,12 @@
   "description": "음주운전의 위험성을 알리고 책임감 있는 선택을 돕기 위한 교육용 웹 애플리케이션입니다.",
   "icons": [
     {
-      "src": "/icons/icon-192x192.png",
+      "src": "./icons/icon-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/icons/icon-512x512.png",
+      "src": "./icons/icon-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
