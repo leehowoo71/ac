@@ -1,10 +1,19 @@
-const CACHE_NAME = 'dui-prevention-cache-v2';
-// Add URLs of assets to cache
+const CACHE_NAME = 'dui-prevention-cache-v3';
+// Add URLs of ALL assets to cache for offline functionality
 const urlsToCache = [
   '.',
   './index.html',
   './manifest.json',
   './index.tsx',
+  './App.tsx',
+  './types.ts',
+  './components/Header.tsx',
+  './components/Footer.tsx',
+  './components/InfoCard.tsx',
+  './components/BACCalculator.tsx',
+  './components/Pledge.tsx',
+  './components/ExcuseGenerator.tsx',
+  './services/geminiService.ts',
   './icons/icon-192x192.png',
   './icons/icon-512x512.png'
 ];
